@@ -412,6 +412,30 @@ footer {
 }
 
 @media (max-width: 768px) {
+    nav {
+        padding: 0.6rem 1rem;
+        flex-direction: row; /* 確保維持橫向 */
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 1.1rem; /* 縮小 Logo 字體 */
+    }
+
+    .logo img {
+        height: 32px; /* 縮小 Logo 圖片 */
+        margin-right: 6px;
+    }
+
+    .nav-links {
+        gap: 0.8rem; /* 大幅縮小連結間距 */
+    }
+
+    .nav-links a {
+        font-size: 0.85rem; /* 縮小連結字體 */
+        white-space: nowrap; /* 強制不換行 */
+    }
+
     .timeline::after { left: 15px; }
     .timeline-item { flex-direction: column; padding: 1.5rem 0 1.5rem 40px; }
     .timeline-date { text-align: left; width: auto; padding-bottom: 8px; margin-top: 0; }
