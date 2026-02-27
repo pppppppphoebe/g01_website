@@ -23,7 +23,7 @@
     </header>
 
     <main>
-        <div class="hero">
+        <div class="hero hero-index">
             <h1>卓越精密，光學領航</h1>
             <p>累積 30 年工藝經驗，提供電視光學級導光板與高精度 CNC 加工方案</p>
         </div>
@@ -55,11 +55,15 @@
         <section class="reveal">
             <div class="image-text-block">
                 <div class="block-image">
-                    <img src="assets/images/無塵室1.jpg" alt="無塵室生產環境">
+                    <div class="slideshow-container">
+                        <img src="assets/images/面板.jpg" class="slide active" alt="精密加工面板展示">
+                        <img src="assets/images/62f44e1bdcf12c17e931516b2317b328.jpg" class="slide" alt="精密加工過程1">
+                        <img src="assets/images/e660b7b777317e7ba20c9eb825b117c9.jpg" class="slide" alt="精密加工過程2">
+                    </div>
                 </div>
                 <div class="block-text">
                     <h2>頂尖加工工藝</h2>
-                    <p>機零壹科技長期擔任電視導光板代工夥伴。我們深知光學組件對於平整度與潔淨度的極高要求。我們的生產線完全符合電子產業的嚴格環境標準。</p>
+                    <p>機零壹科技長期擔任顯示器導光板、擴散板代工夥伴。我們深知光學組件對於平整度與潔淨度的極高要求。我們的生產線完全符合電子產業的嚴格環境標準。</p>
                     <p>我們採用的 CNC 製程具備以下特色：</p>
                     <ul style="padding-left: 20px;">
                         <li><strong>無毛邊處理</strong>：物理性微切割技術，確保邊緣平滑不傷手。</li>
@@ -135,6 +139,20 @@
         document.querySelectorAll('.reveal').forEach(el => {
             observer.observe(el);
         });
+
+        // Slideshow Logic
+        function startSlideshow() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 4000); // 每 4 秒更換一次
+        }
+
+        startSlideshow();
     </script>
 </body>
 </html>

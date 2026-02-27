@@ -23,7 +23,7 @@
     </header>
 
     <main>
-        <div class="hero" style="height: 350px; background-image: linear-gradient(rgba(0,40,80,0.8), rgba(0,40,80,0.8)), url('assets/images/45084ccc015bf42b84051dc34b6914c1.jpg');">
+        <div class="hero hero-products">
             <h1>產品與生產能力</h1>
             <p>從材料研發到精密加工，提供全方位的光學級解決方案</p>
         </div>
@@ -36,7 +36,7 @@
             <div class="grid">
                 <div class="card">
                     <h3>光學級壓克力 (PMMA)</h3>
-                    <p>具備極佳的透光率與耐候性。主要應用於電視導光板、車燈透鏡、廣告招牌及各類光學展示組件。</p>
+                    <p>具備極佳的透光率與耐候性。主要應用於顯示器導光板、擴散板、車燈透鏡、廣告招牌及各類光學展示組件。</p>
                 </div>
                 <div class="card">
                     <h3>聚碳酸酯 (PC)</h3>
@@ -74,7 +74,10 @@
                     </table>
                 </div>
                 <div class="block-image">
-                    <img src="assets/images/面板.jpg" alt="高精度 CNC 加工面板展示">
+                    <div class="slideshow-container">
+                        <img src="assets/images/b3949cf1eb336742c8c73ae9f6f298a1.jpg" class="slide active" alt="CNC 加工設備1">
+                        <img src="assets/images/切割機1.jpg" class="slide" alt="CNC 切割機展示">
+                    </div>
                 </div>
             </div>
         </section>
@@ -112,7 +115,7 @@
                 <div class="gallery-item"><img src="assets/images/28ef62f4e1bec2d42b6d9884c8ba8c20.jpg" alt="生產設備"></div>
                 <div class="gallery-item"><img src="assets/images/f812f1b211350a808bf0018898dbd80d.jpg" alt="加工細節"></div>
                 <div class="gallery-item"><img src="assets/images/f80af8a71a94db95ce86bebf6332c2ad.jpg" alt="自動化產線"></div>
-                <div class="gallery-item"><img src="assets/images/8b9351665e4dd7cb774f8252d57354e4.jpg" alt="產品檢測"></div>
+                <div class="gallery-item"><img src="assets/images/大門.jpg" alt="公司廠房大門"></div>
                 <div class="gallery-item"><img src="assets/images/5c81404b02c26374f13677f3897ab55c.jpg" alt="精密零件"></div>
                 <div class="gallery-item"><img src="assets/images/39bb7edeafdd799ee5ab6d67d5e987b4.jpg" alt="廠房環境"></div>
             </div>
@@ -156,6 +159,21 @@
         document.querySelectorAll('.reveal').forEach(el => {
             observer.observe(el);
         });
+
+        // Slideshow Logic
+        function startSlideshow() {
+            const slides = document.querySelectorAll('.slide');
+            if (slides.length === 0) return;
+            
+            let currentSlide = 0;
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 4000);
+        }
+
+        startSlideshow();
     </script>
 </body>
 </html>

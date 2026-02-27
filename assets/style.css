@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
 
-/* G01 Technology - Professional Style */
+/* G01 Technology - Original Professional Style */
 :root {
     --primary-color: #004a99;
     --primary-light: #e6f0ff;
@@ -19,10 +19,12 @@
 
 body {
     font-family: 'Source Sans 3', 'Noto Sans TC', "Microsoft JhengHei", sans-serif;
-    font-weight: 400;
     line-height: 1.8;
     color: var(--text-color);
     background-color: var(--bg-color);
+    /* 保留材質感：極細微點陣紋理 */
+    background-image: radial-gradient(#d1d5db 0.6px, transparent 0.6px);
+    background-size: 24px 24px;
     margin: 0;
 }
 
@@ -48,7 +50,7 @@ nav {
     display: flex;
     align-items: center;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 1.5rem;
     color: var(--primary-color);
 }
@@ -98,23 +100,59 @@ nav {
     align-items: center;
     color: var(--white);
     text-align: center;
-    background: linear-gradient(rgba(0, 15, 30, 0.8), rgba(0, 30, 60, 0.65)), url('images/2db361edc32a4b70044582b040d5e3ff.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    overflow: hidden;
+}
+
+/* 各頁面專屬背景圖 */
+.hero-index {
+    background-image: linear-gradient(135deg, rgba(0, 45, 91, 0.9) 0%, rgba(0, 20, 40, 0.5) 100%), url('images/2db361edc32a4b70044582b040d5e3ff.jpg');
+}
+
+.hero-about {
+    height: 400px;
+    background-image: linear-gradient(135deg, rgba(0, 45, 91, 0.85) 0%, rgba(0, 20, 40, 0.6) 100%), url('images/大門.jpg');
+}
+
+.hero-products {
+    height: 400px;
+    background-image: linear-gradient(135deg, rgba(0, 45, 91, 0.85) 0%, rgba(0, 20, 40, 0.6) 100%), url('images/45084ccc015bf42b84051dc34b6914c1.jpg');
 }
 
 .hero h1 {
-    font-weight: 600;
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    letter-spacing: normal;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-weight: 700;
+    font-size: 3.8rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: heroTextUp 1.2s ease-out;
 }
 
 .hero p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     max-width: 800px;
+    opacity: 0.95;
+    font-weight: 300;
+    animation: heroTextUp 1.2s ease-out 0.2s backwards;
+}
+
+@keyframes heroTextUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero { height: 450px; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1.1rem; padding: 0 2rem; }
 }
 
 section {
@@ -179,6 +217,30 @@ section {
 
 .block-image {
     flex: 1;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 400px; /* 固定高度以維持排版穩定 */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
 }
 
 .block-image img {
