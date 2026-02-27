@@ -415,6 +415,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .slideshow-container {
+        height: 250px !important; /* 手機版明確高度，防止塌陷 */
+        margin-bottom: 1.5rem;
+    }
+
     nav {
         padding: 0.6rem 1rem;
         flex-direction: row; /* 確保維持橫向 */
