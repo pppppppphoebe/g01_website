@@ -28,7 +28,7 @@
             <p>傳承三十年精密工藝，追求極致品質</p>
         </div>
 
-        <section id="company-profile" style="text-align: center;">
+        <section id="company-profile" class="reveal" style="text-align: center;">
             <div class="section-title">
                 <h2>公司簡介</h2>
             </div>
@@ -42,7 +42,7 @@
             </div>
         </section>
 
-        <section id="philosophy" style="background-color: var(--primary-light); border: none;">
+        <section id="philosophy" class="reveal" style="background-color: var(--primary-light); border: none;">
             <div class="section-title">
                 <h2>核心價值與經營理念</h2>
                 <p>引領機零壹前進的三大支柱</p>
@@ -64,7 +64,7 @@
         </section>
 
         <section id="history">
-            <div class="section-title">
+            <div class="section-title reveal">
                 <h2>公司發展沿革</h2>
                 <p>三十餘載精益求精，寫下精密加工的輝煌篇章</p>
             </div>
@@ -98,7 +98,7 @@
                     <div class="timeline-date">2007 / 08</div>
                     <div class="timeline-content">
                         <h4>營運規模擴大與遷廠</h4>
-                        <p>為即時服務南科客戶並擴充產能，於台南安定區購置 2500 坪土地自建現代化廠房，建立更穩固的生產基地。</p>
+                        <p>於台南安定區購置 2500 坪土地自建現代化廠房，擴充生產空間並遷移至新址，建立更穩固的生產基地。</p>
                     </div>
                 </div>
 
@@ -145,5 +145,23 @@
             <p>&copy; 2026 G01 TECHNOLOGIES INC. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>

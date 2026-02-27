@@ -28,7 +28,7 @@
             <p>累積 30 年工藝經驗，提供電視光學級導光板與高精度 CNC 加工方案</p>
         </div>
 
-        <section>
+        <section class="reveal">
             <div class="section-title">
                 <h2>我們的核心優勢</h2>
                 <p>為什麼知名品牌大廠選擇與機零壹合作？</p>
@@ -52,7 +52,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="reveal">
             <div class="image-text-block">
                 <div class="block-image">
                     <img src="assets/images/無塵室1.jpg" alt="無塵室生產環境">
@@ -70,7 +70,7 @@
             </div>
         </section>
 
-        <div class="stats-container" style="max-width:1200px; margin: 0 auto;">
+        <div class="stats-container reveal" style="max-width:1200px; margin: 0 auto;">
             <div class="stat-item">
                 <h3>30+</h3>
                 <p>行業經驗 (年)</p>
@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <section style="background: none; box-shadow: none;">
+        <section class="reveal" style="background: none; box-shadow: none;">
             <div class="section-title">
                 <h2>專業生產設備</h2>
             </div>
@@ -118,5 +118,23 @@
             <p>&copy; 2026 機零壹科技股份有限公司 G01 TECHNOLOGIES INC. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>

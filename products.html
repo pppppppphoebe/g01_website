@@ -28,7 +28,7 @@
             <p>從材料研發到精密加工，提供全方位的光學級解決方案</p>
         </div>
 
-        <section id="materials">
+        <section id="materials" class="reveal">
             <div class="section-title">
                 <h2>多元加工材質</h2>
                 <p>我們精通各種工業塑膠與光學材料的加工特性</p>
@@ -49,7 +49,7 @@
             </div>
         </section>
 
-        <section id="technical-specs">
+        <section id="technical-specs" class="reveal">
             <div class="image-text-block">
                 <div class="block-text">
                     <h2>高精度 CNC 加工規範</h2>
@@ -79,7 +79,7 @@
             </div>
         </section>
 
-        <section id="quality-management">
+        <section id="quality-management" class="reveal">
             <div class="section-title">
                 <h2>嚴格的品質管理</h2>
                 <p>符合國際 ISO 標準，確保產品的出廠品質</p>
@@ -101,7 +101,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="reveal">
             <div class="section-title">
                 <h2>生產現場藝廊</h2>
                 <p>我們的現代化自動化生產設施</p>
@@ -144,5 +144,23 @@
             <p>&copy; 2026 機零壹科技股份有限公司 G01 TECHNOLOGIES INC.</p>
         </div>
     </footer>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
