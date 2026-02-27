@@ -447,5 +447,27 @@ footer {
     .image-text-block, .image-text-block:nth-child(even) {
         flex-direction: column;
     }
-    .hero h1 { font-size: 2.5rem; }
+
+    /* 手機版 Hero 優化 */
+    .hero { 
+        height: 380px !important; /* 強制統一手機版高度 */
+        background-attachment: scroll !important; /* 修復背景圖消失問題 */
+        background-position: center center;
+    }
+
+    .hero-about, .hero-products {
+        height: 300px !important; /* 內頁手機版高度更精簡 */
+    }
+
+    .hero h1 { 
+        font-size: 1.8rem; 
+        padding: 0 1rem; 
+        line-height: 1.3;
+    }
+
+    .hero p { 
+        font-size: 0.95rem; 
+        padding: 0 1.5rem; 
+        margin-top: 0.5rem;
+    }
 }
