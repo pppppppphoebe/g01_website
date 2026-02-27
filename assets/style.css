@@ -401,28 +401,31 @@ footer {
 }
 
 @media (max-width: 768px) {
-    nav {
-        padding: 0.6rem 1rem;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .logo {
-        font-size: 1.1rem;
-        white-space: nowrap;
-        flex-shrink: 0;
-    }
-
-    .logo img {
-        height: 30px;
-        margin-right: 5px;
-    }
-
-    .nav-links { gap: 0.6rem; }
-    .nav-links a { font-size: 0.85rem; white-space: nowrap; }
-
     .image-text-block, .image-text-block:nth-child(even) {
         flex-direction: column;
+        gap: 2rem;
+    }
+
+    .block-image, .block-text {
+        width: 100% !important; /* 強制手機版佔滿寬度 */
+        flex: none;
+    }
+
+    /* 手機版輪播容器強化 */
+    .slideshow-container {
+        height: 280px !important;
+        width: 100% !important;
+        margin-bottom: 1.5rem;
+        display: block !important;
+        position: relative !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .slide {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
     }
 
     /* 手機版 Hero 暴力修復 */
