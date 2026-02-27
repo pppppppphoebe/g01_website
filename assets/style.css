@@ -419,16 +419,18 @@ footer {
     }
 
     .logo {
-        font-size: 1.1rem; /* 縮小 Logo 字體 */
+        font-size: 1.1rem;
+        white-space: nowrap; /* 強制公司名稱不換行 */
+        flex-shrink: 0; /* 防止 Logo 被擠壓 */
     }
 
     .logo img {
-        height: 32px; /* 縮小 Logo 圖片 */
-        margin-right: 6px;
+        height: 30px; /* 再稍微縮小一點點 */
+        margin-right: 5px;
     }
 
     .nav-links {
-        gap: 0.8rem; /* 大幅縮小連結間距 */
+        gap: 0.6rem; /* 再縮小連結間距 */
     }
 
     .nav-links a {
