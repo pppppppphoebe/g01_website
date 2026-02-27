@@ -31,7 +31,7 @@
         <section class="reveal">
             <div class="section-title">
                 <h2>我們的核心優勢</h2>
-                <p>為什麼知名品牌大廠選擇與機零壹合作？</p>
+                <p>為什麼長期合作夥伴選擇信任機零壹？</p>
             </div>
             <div class="grid">
                 <div class="card">
@@ -141,18 +141,23 @@
         });
 
         // Slideshow Logic
-        function startSlideshow() {
-            const slides = document.querySelectorAll('.slide');
-            let currentSlide = 0;
+        function initSlideshows() {
+            const containers = document.querySelectorAll('.slideshow-container');
+            
+            containers.forEach(container => {
+                const slides = container.querySelectorAll('.slide');
+                if (slides.length <= 1) return;
 
-            setInterval(() => {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }, 4000); // 每 4 秒更換一次
+                let currentSlide = 0;
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 4000);
+            });
         }
 
-        startSlideshow();
+        initSlideshows();
     </script>
 </body>
 </html>

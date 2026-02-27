@@ -161,19 +161,23 @@
         });
 
         // Slideshow Logic
-        function startSlideshow() {
-            const slides = document.querySelectorAll('.slide');
-            if (slides.length === 0) return;
+        function initSlideshows() {
+            const containers = document.querySelectorAll('.slideshow-container');
             
-            let currentSlide = 0;
-            setInterval(() => {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }, 4000);
+            containers.forEach(container => {
+                const slides = container.querySelectorAll('.slide');
+                if (slides.length <= 1) return;
+
+                let currentSlide = 0;
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 4000);
+            });
         }
 
-        startSlideshow();
+        initSlideshows();
     </script>
 </body>
 </html>
